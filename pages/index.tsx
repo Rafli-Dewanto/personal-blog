@@ -5,6 +5,10 @@ import Head from 'next/head'
 import { getSortedPostsData } from "../lib/posts";
 import Link from 'next/link';
 import formatDate from "@/utils/formatDate";
+import GitHubIcon from "@/components/githubIcon";
+import LinkedInIcon from "@/components/LinkedinIcon";
+import InstagramIcon from "@/components/InstagramIcon";
+import TwitterIcon from "@/components/TwitterIcon";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +26,7 @@ export default function Home({ allPostsData }: HomeProps) {
         <p>Hello, I’m Rafli. I’m a Backend Developer and a Computer Science Student.</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <h2 className={`${utilStyles.headingLg} font-bold text-3xl`}>Blog</h2>
         <ul className={`${utilStyles.list}`}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={`${utilStyles.listItem}`} key={id}>
@@ -34,6 +38,20 @@ export default function Home({ allPostsData }: HomeProps) {
             </li>
           ))}
         </ul>
+      </section>
+      <section className="flex gap-5 mt-10 socials">
+        <Link href={`https://github.com/rafli-dewanto`} target="_blank">
+          <GitHubIcon />
+        </Link>
+        <Link href={`https://www.linkedin.com/in/rd09/`} target="_blank">
+          <LinkedInIcon />
+        </Link>
+        <Link href={`https://www.instagram.com/rafli.dewanto/`} target="_blank">
+          <InstagramIcon />
+        </Link>
+        <Link href={`https://twitter.com/Rafli_Dewanto`} target="_blank">
+          <TwitterIcon />
+        </Link>
       </section>
     </Layout>
   )
